@@ -1,0 +1,76 @@
+class calculadora():
+    def __init__(self):
+        print("Calculadora")
+        self.numero1 = float(input("Digite o número 1: "))
+        self.operacao = str(input("Digite a operação desejada ([+]Para somar, [-]Para subtrair, [*]Para multiplicar, [/]Para dividir: "))
+        self.numero2 = float(input("Digite o número 2: "))
+        if self.operacao == "+":
+            resp = self.numero1 + self.numero2
+            print(resp)
+        elif self.operacao == "-":
+            resp = self.numero1 - self.numero2
+            print(resp)
+        elif self.operacao == "*":
+            resp = self.numero1 * self.numero2
+            print(resp)
+        elif self.operacao == "/":
+            resp = self.numero1 / self.numero2
+            print(resp)
+    print("________"*10)
+
+class imc():
+    def __init__(self):
+        print("Calculadora IMC")
+        self.peso = float(input("Digite o peso(kg): "))
+        self.altura = float(input("Digite a altura(m): "))
+        imc = self.peso/(self.altura**2)
+        print(imc)
+        if imc < 18.5:
+            print("Abaixo do peso.")
+        elif imc < 24.9:
+            print("Peso normal")
+        elif imc < 29.9:
+            print("Sobrepeso")
+        elif imc < 34.99:
+            print("Obesidade I")
+        elif imc < 39.99:
+            print("Obesidade II")
+        elif imc > 39.99:
+            print("Obesidade III")
+        
+
+class idade():
+    def __init__(self):
+        self.ano = int(input("Digite o ano do nascimento: "))
+        idade = 2024 - self.ano
+        print(idade)
+        print("________"*10)
+
+class menu():
+    def __init__(self):
+        while True:
+            self.opcao = int(input("""
+                Digite (1) para usar a calculadora
+                Digite (2) para usar a calculadora de IMC
+                Digite (3) para usar a calculadora de idade
+                Digite (4) Para sair
+                """)) 
+            if self.opcao == 1:
+                calculadora()
+            elif self.opcao == 2:
+                imc()
+            elif self.opcao == 3:
+                idade()
+            elif self.opcao == 4:
+                login()
+class login():
+    def __init__(self):
+        self.log = str(input("Login: "))
+        self.psw = int(input("Senha: "))
+        if self.log == "XPTO" and self.psw == 12345678:
+            print("Acesso autorizado!")
+            menu()
+        else:
+            print("Acesso Negado")
+            login()
+login()
